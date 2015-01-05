@@ -1,0 +1,28 @@
+<pre>
+
+        function fsearchbox_submit(f) {
+            if (f.q.value.length < 1) {
+                alert("검색어를 입력해 주십시오.");
+                f.q.focus();
+                return false;
+            }
+            f.action = "./bbs/search.php";
+            return true;
+        }
+        $(function() {
+            var $sch = $('#sch_q');
+            var $sch_label = $('#sch_qlbl');
+            if ($sch.attr('value') == "") $sch_label.css('visibility','visible');
+            else  $sch_label.css('visibility','hidden');
+
+            $sch.focus(function() {
+                $sch_label.css('visibility','hidden');
+            });
+            $sch.blur(function() {
+                $this = $(this);
+                if ($this.attr('id') == "sch_q" && $this.attr('value') == "") $sch_label.css('visibility','visible');
+            });
+        });
+
+
+</pre>
